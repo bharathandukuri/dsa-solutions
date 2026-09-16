@@ -8,8 +8,8 @@
 Array, Two Pointers, Dynamic Programming, Enumeration
 
 ### 🚀 Performance
-- **Runtime:** N/A
-- **Memory:** N/A
+- **Runtime:** 108 ms
+- **Memory:** 47 MB
 
 ---
 
