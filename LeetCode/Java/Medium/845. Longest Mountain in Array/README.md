@@ -1,6 +1,6 @@
 # 📝 845. Longest Mountain in Array (LeetCode)
 
-🔗 [Problem Link](https://leetcode.com/problems/longest-mountain-in-array/)
+🔗 [Problem Link](https://leetcode.com/problems/longest-mountain-in-array)
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-orange) ![Language](https://img.shields.io/badge/Language-Java-blue)
 
