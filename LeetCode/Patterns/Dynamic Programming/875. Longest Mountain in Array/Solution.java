@@ -1,58 +1,27 @@
 class Solution {
     public int longestMountain(int[] nums) {
-        int[] lis = lengthOfLIS(nums);
-        int[] lisR = lengthOfLISRev(nums);
-
-        int maxMountain = 0;
+        int longest = 0;
         for (int i = 1; i < nums.length - 1; i++) {
-            if (lis[i] > 1 && lisR[i] > 1) {
-                int mountainLength = lis[i] + lisR[i] - 1;
-                maxMountain = Math.max(maxMountain, mountainLength);
-            }
+            longest = Math.max(longest, lengthOfMountain(nums, i));
         }
-        return maxMountain;
+
+        return longest;
     }
 
-    public int[] lengthOfLIS(int[] nums) {
-        int n = nums.length;
-        int[] dp = new int[n + 1];
-        int result = 1;
-
-        for (int i = 0; i < n; i++) {
-            dp[i] = 1;
+    private int lengthOfMountain(int[] nums, int peak) {
+        int i = peak - 1;
+        int j = peak + 1;
+        while (i >= 0 && nums[i] < nums[i + 1]) {
+            i--;
         }
-
-        for (int i = 0; i < n; i++) {
-            for (int j = i - 1; j >= 0; j--) {
-                if (nums[j] < nums[i]) {
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
-                }
-            }
-            result = Math.max(result, dp[i]);
+        while (j < nums.length && nums[j] > nums[j - 1]) {
+            j++;
         }
+        int diff = j - i - 1;
 
-        return dp;
-    }
-
-
-    public int[] lengthOfLISRev(int[] nums) {
-        int n = nums.length;
-        int[] dp = new int[n + 1];
-        int result = 1;
-
-        for (int i = n - 1; i >= 0; i--) {
-            dp[i] = 1;
+        if (diff <= 2) {
+            return 0;
         }
-
-        for (int i = n - 1; i >= 0; i--) {
-            for (int j = i + 1; j < n; j++) {
-                if (nums[j] < nums[i]) {
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
-                }
-            }
-            result = Math.max(result, dp[i]);
-        }
-
-        return dp;
+        return diff + 2;
     }
 }
