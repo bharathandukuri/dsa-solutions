@@ -3,7 +3,7 @@
 Track your progress on the NeetCode 150 roadmap practice problems.
 
 ## Progress
-- **Completed:** 8 / 150 (5.3%)
+- **Completed:** 9 / 150 (6.0%)
 
 ---
 
@@ -51,7 +51,7 @@ Track your progress on the NeetCode 150 roadmap practice problems.
 - [ ] Find Minimum in Rotated Sorted Array
 - [ ] Search in Rotated Sorted Array
 - [ ] Time Based Key-Value Store
-- [ ] Median of Two Sorted Arrays
+- [x] [Median of Two Sorted Arrays](./C++/Hard/4. Median of Two Sorted Arrays/)
 
 ### 📂 Linked List
 - [ ] Reverse Linked List
