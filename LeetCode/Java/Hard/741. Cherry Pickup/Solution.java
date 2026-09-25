@@ -38,9 +38,9 @@ class Solution {
         }
 
         // Cherries collected at the current synchronized step
-        int cherries = (r1 == r2 && c1 == c2) 
-            ? grid[r1][c1] 
-            : grid[r1][c1] + grid[r2][c2];
+        int cherries = (r1 == r2 && c1 == c2)
+                ? grid[r1][c1]
+                : grid[r1][c1] + grid[r2][c2];
 
         // 4 possible simultaneous moves:
         // 1. Both Down
@@ -48,9 +48,8 @@ class Solution {
         // 3. Person 1 Right, Person 2 Down
         // 4. Both Right
         int bestNext = Math.max(
-            Math.max(dfs(grid, r1 + 1, c1, r2 + 1, n), dfs(grid, r1 + 1, c1, r2, n)),
-            Math.max(dfs(grid, r1, c1 + 1, r2 + 1, n), dfs(grid, r1, c1 + 1, r2, n))
-        );
+                Math.max(dfs(grid, r1 + 1, c1, r2 + 1, n), dfs(grid, r1 + 1, c1, r2, n)),
+                Math.max(dfs(grid, r1, c1 + 1, r2 + 1, n), dfs(grid, r1, c1 + 1, r2, n)));
 
         if (bestNext == -1) {
             return dp[r1][c1][r2] = -1;
