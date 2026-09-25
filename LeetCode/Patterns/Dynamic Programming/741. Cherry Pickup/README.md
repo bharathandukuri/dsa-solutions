@@ -1,6 +1,6 @@
 # 📝 741. Cherry Pickup (LeetCode)
 
-🔗 [Problem Link](https://leetcode.com/problems/cherry-pickup)
+🔗 [Problem Link](https://leetcode.com/problems/cherry-pickup/)
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Hard-red) ![Language](https://img.shields.io/badge/Language-Java-blue)
 
