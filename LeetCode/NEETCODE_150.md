@@ -3,7 +3,7 @@
 Track your progress on the NeetCode 150 roadmap practice problems.
 
 ## Progress
-- **Completed:** 14 / 150 (9.3%)
+- **Completed:** 15 / 150 (10.0%)
 
 ---
 
@@ -139,7 +139,7 @@ Track your progress on the NeetCode 150 roadmap practice problems.
 
 ### 📂 2-D Dynamic Programming
 - [ ] Unique Paths
-- [ ] Longest Common Subsequence
+- [x] [Longest Common Subsequence](./Java/Medium/1250. Longest Common Subsequence/)
 - [ ] Best Time to Buy and Sell Stock with Cooldown
 - [ ] Coin Change II
 - [ ] Target Sum

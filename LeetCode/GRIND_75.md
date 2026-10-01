@@ -3,7 +3,7 @@
 Track your progress on the Grind 75 coding interview preparation list.
 
 ## Progress
-- **Completed:** 10 / 75 (13.3%)
+- **Completed:** 11 / 75 (14.7%)
 
 ---
 
@@ -32,7 +32,7 @@ Track your progress on the Grind 75 coding interview preparation list.
 - [ ] Climbing Stairs
 - [ ] Coin Change
 - [ ] Longest Increasing Subsequence
-- [ ] Longest Common Subsequence
+- [x] [Longest Common Subsequence](./Java/Medium/1250. Longest Common Subsequence/)
 - [ ] Word Break
 - [ ] Combination Sum
 - [ ] House Robber
