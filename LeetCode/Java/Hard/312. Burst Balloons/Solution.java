@@ -10,12 +10,23 @@ class Solution {
             padding[i + 1] = nums[i];
         }
 
+        dp = new int[n + 2][n + 2];
+        for (int i = 0; i < n + 2; i++) {
+            Arrays.fill(dp[i], -1);
+        }
+
         return helper(padding, 1, n);
     }
+
+    int[][] dp;
 
     private int helper(int[] nums, int i, int j) {
         if (i > j) {
             return 0;
+        }
+
+        if (dp[i][j] != -1) {
+            return dp[i][j];
         }
 
         int best = 0;
@@ -30,6 +41,6 @@ class Solution {
             best = Math.max(best, cost + left + right);
         }
 
-        return best;
+        return dp[i][j] = best;
     }
 }
