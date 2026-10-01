@@ -1,10 +1,18 @@
 class Solution {
     public int strangePrinter(String s) {
-        char[] arr = s.toCharArray();
-        return helper(arr, 0, arr.length - 1);
+        int n = s.length();
+        arr = s.toCharArray();
+        dp = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            Arrays.fill(dp[i], -1);
+        }
+        return helper(0, arr.length - 1);
     }
 
-    private int helper(char[] arr, int i, int j) {
+    int[][] dp;
+    char[] arr;
+
+    private int helper(int i, int j) {
         if (i > j) {
             return 0;
         }
@@ -13,18 +21,22 @@ class Solution {
             return 1;
         }
 
-        int best = 1 + helper(arr, i + 1, j);
+        if (dp[i][j] != -1) {
+            return dp[i][j];
+        }
+
+        int best = 1 + helper(i + 1, j);
 
         for (int k = i + 1; k <= j; k++) {
             if (arr[i] == arr[k]) {
                 best = Math.min(
                     best,
-                    helper(arr, i + 1, k - 1) +
-                    helper(arr, k, j)
+                    helper(i + 1, k - 1) +
+                    helper(k, j)
                 );
             }
         }
 
-        return best;
+        return dp[i][j] = best;
     }
 }
