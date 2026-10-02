@@ -1,38 +1,36 @@
 class Solution {
-    int[][] dp;
-
     public int maxProfit(int[] prices) {
         int n = prices.length;
-
         dp = new int[n][2];
-        for (int i = 0; i < n; i++) {
-            dp[i][0] = -1;
-            dp[i][1] = -1;
-        }
-
-        return solve(prices, 0, 0);
+        cached = new boolean[n][2];
+        return helper(prices, 0, 0);
     }
 
-    private int solve(int[] prices, int i, int state) {
-        int n = prices.length;
+    int[][] dp;
+    boolean[][] cached;
 
+    private int helper(int[] prices, int i, int state) {
+        int n = prices.length;
         if (i >= n) {
             return 0;
         }
 
-        if (dp[i][state] != -1) {
+        if (cached[i][state]) {
             return dp[i][state];
         }
 
-        int cool = solve(prices, i + 1, state);
+        cached[i][state] = true;
+        int result;
+        //buy
         if (state == 0) {
-            int buy = solve(prices, i + 1, 1) - prices[i];
-            dp[i][state] = Math.max(cool, buy);
+            int buy = -prices[i] + helper(prices, i + 1, 1);
+            int skip = helper(prices, i + 1, 0);
+            result = Math.max(buy, skip);
         } else {
-            int sell = solve(prices, i + 2, 0) + prices[i];
-            dp[i][state] = Math.max(cool, sell);
+            int sell = prices[i] + helper(prices, i + 2, 0);
+            int skip = helper(prices, i + 1, 1);
+            result = Math.max(sell, skip);
         }
-
-        return dp[i][state];
-    }
+        return dp[i][state] = result;
+    }   
 }
