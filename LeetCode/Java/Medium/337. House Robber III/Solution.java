@@ -1,38 +1,24 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
 class Solution {
     public int rob(TreeNode root) {
-        return dfs(root);
+        int[] result = dfs(root);
+        return Math.max(result[0], result[1]);
     }
 
-    private int dfs(TreeNode root) {
+    private int[] dfs(TreeNode root) {
         if (root == null) {
-            return 0;
+            return new int[]{0, 0};
         }
 
-        int res = root.val;
-        if (root.left != null) {
-            res += dfs(root.left.left) + dfs(root.left.right);
-        }
-        if (root.right != null) {
-            res += dfs(root.right.left) + dfs(root.right.right);
-        }
+        int[] left = dfs(root.left);
+        int[] right = dfs(root.right);
 
-        res = Math.max(res, dfs(root.left) + dfs(root.right));
+        // Rob current node, so skip both children
+        int rob = root.val + left[1] + right[1];
 
-        return res;
+        // Skip current node, children can be robbed or skipped
+        int skip = Math.max(left[0], left[1])
+                 + Math.max(right[0], right[1]);
+
+        return new int[]{rob, skip};
     }
 }
