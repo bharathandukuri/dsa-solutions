@@ -1,8 +1,16 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        int[][]
+        dp = new int[prices.length][2][2];
+
+        for (int i = 0; i < prices.length; i++) {
+            Arrays.fill(dp[i][0], -1);
+            Arrays.fill(dp[i][1], -1);
+        }
+
         return helper(prices, 0, 0, 0);
     }
+
+    int[][][] dp;
 
     private int helper(int[] prices, int i, int transactions, int state) {
         int n = prices.length;
@@ -13,6 +21,10 @@ class Solution {
 
         if (transactions == 2 && state == 0) {
             return 0;
+        }
+
+        if (dp[i][transactions][state] != -1) {
+            return dp[i][transactions][state];
         }
 
         int skip = helper(prices, i + 1, transactions, state);
@@ -33,6 +45,6 @@ class Solution {
             best = Math.max(skip, sell);
         }
 
-        return best;
+        return dp[i][transactions][state] = best;
     }
 }
