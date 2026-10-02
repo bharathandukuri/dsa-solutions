@@ -1,17 +1,18 @@
 class Solution {
+    private int[][] dp;
+    private boolean[][] cached;
+
     public int maxProfit(int[] prices) {
-        dp = new int[prices.length][2];
-        cached = new boolean[prices.length][2];
+        int n = prices.length;
+
+        dp = new int[n][2];
+        cached = new boolean[n][2];
+
         return helper(prices, 0, 0);
     }
 
-    int[][] dp;
-    boolean[][] cached;
-
     private int helper(int[] prices, int i, int state) {
-        int n = prices.length;
-
-        if (i >= n) {
+        if (i == prices.length) {
             return 0;
         }
 
@@ -20,19 +21,17 @@ class Solution {
         }
 
         cached[i][state] = true;
-        int result;
 
         if (state == 0) {
-            // Buy OR skip
             int buy = -prices[i] + helper(prices, i + 1, 1);
             int skip = helper(prices, i + 1, 0);
-            result = Math.max(buy, skip);
-        } else {
-            // Sell OR hold
-            int sell = prices[i] + helper(prices, i + 1, 0);
-            int hold = helper(prices, i + 1, 1);
-            result =  Math.max(sell, hold);
+
+            return dp[i][state] = Math.max(buy, skip);
         }
-        return dp[i][state] = result;
+
+        int sell = prices[i] + helper(prices, i + 1, 0);
+        int hold = helper(prices, i + 1, 1);
+
+        return dp[i][state] = Math.max(sell, hold);
     }
 }
