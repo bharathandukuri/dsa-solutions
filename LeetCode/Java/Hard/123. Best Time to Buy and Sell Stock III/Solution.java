@@ -10,8 +10,6 @@ class Solution {
             return 0;
         }
 
-        // Already completed 2 transactions.
-        // We cannot start another transaction.
         if (transactions == 2 && state == 0) {
             return 0;
         }
@@ -21,7 +19,6 @@ class Solution {
         int best;
 
         if (state == 0) {
-            // Buy
             int buy = -prices[i]
                     + helper(prices, i + 1, transactions, 1);
 
