@@ -37,7 +37,7 @@ class Solution {
         }
 
 
-        int skip = dfs(arr, i + 1, open, close, length);
+        int skip = dfs(arr, i + 1, 0, close, length);
         return dp[i][open - close] = Math.max(take, skip);
     }
 }
