@@ -2,8 +2,17 @@ class Solution {
     public int longestValidParentheses(String s) {
         char[] arr = s.toCharArray();
         int n = s.length();
+
+        dp = new int[n][n];
+        
+        for (int i = 0; i < n; i++) {
+            Arrays.fill(dp[i], -1);
+        }
+
         return dfs(arr, 0, 0, 0, 0);
     }
+
+    int[][] dp;
 
     private int dfs(char[] arr, int i, int open, int close, int length) {
         int n = arr.length;
@@ -12,8 +21,11 @@ class Solution {
             if (open == close) {
                 return length;
             }
-
             return 0;
+        }
+
+        if (dp[i][open - close] != -1) {
+            return dp[i][open - close];
         }
 
         //take
@@ -26,6 +38,6 @@ class Solution {
 
 
         int skip = dfs(arr, i + 1, open, close, length);
-        return Math.max(take, skip);
+        return dp[i][open - close] = Math.max(take, skip);
     }
 }
