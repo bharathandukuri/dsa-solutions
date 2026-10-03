@@ -1,43 +1,44 @@
 class Solution {
     public int longestValidParentheses(String s) {
-        char[] arr = s.toCharArray();
         int n = s.length();
 
-        dp = new int[n][n];
-        
-        for (int i = 0; i < n; i++) {
-            Arrays.fill(dp[i], -1);
-        }
+        int[] dp = new int[n];
 
-        return dfs(arr, 0, 0, 0, 0);
-    }
+        int answer = 0;
 
-    int[][] dp;
+        for (int i = 1; i < n; i++) {
 
-    private int dfs(char[] arr, int i, int open, int close, int length) {
-        int n = arr.length;
-        
-        if (i >= n) {
-            if (open == close) {
-                return length;
+            if (s.charAt(i) == ')') {
+
+                // Case 1: ()
+                if (s.charAt(i - 1) == '(') {
+
+                    dp[i] = 2;
+
+                    if (i >= 2) {
+                        dp[i] += dp[i - 2];
+                    }
+                }
+
+                // Case 2: ))
+                else {
+
+                    int j = i - dp[i - 1] - 1;
+
+                    if (j >= 0 && s.charAt(j) == '(') {
+
+                        dp[i] = dp[i - 1] + 2;
+
+                        if (j >= 1) {
+                            dp[i] += dp[j - 1];
+                        }
+                    }
+                }
+
+                answer = Math.max(answer, dp[i]);
             }
-            return 0;
         }
 
-        if (dp[i][open - close] != -1) {
-            return dp[i][open - close];
-        }
-
-        //take
-        int take = 0;
-        if (arr[i] == '(') {
-            take = dfs(arr, i + 1, open + 1, close, length + 1);
-        } else if (close < open) {
-            take = dfs(arr, i + 1, open, close + 1, length + 1);
-        }
-
-
-        int skip = dfs(arr, i + 1, 0, close, length);
-        return dp[i][open - close] = Math.max(take, skip);
+        return answer;
     }
 }
