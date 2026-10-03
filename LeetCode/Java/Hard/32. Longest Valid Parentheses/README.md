@@ -1,6 +1,6 @@
 # 📝 32. Longest Valid Parentheses (LeetCode)
 
-🔗 [Problem Link](https://leetcode.com/problems/longest-valid-parentheses)
+🔗 [Problem Link](https://leetcode.com/problems/longest-valid-parentheses/)
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Hard-red) ![Language](https://img.shields.io/badge/Language-Java-blue)
 
