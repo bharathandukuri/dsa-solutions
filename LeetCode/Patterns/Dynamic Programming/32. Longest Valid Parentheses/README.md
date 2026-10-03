@@ -1,6 +1,6 @@
 # 📝 32. Longest Valid Parentheses (LeetCode)
 
-🔗 [Problem Link](https://leetcode.com/problems/longest-valid-parentheses)
+🔗 [Problem Link](https://leetcode.com/problems/longest-valid-parentheses/)
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Hard-red) ![Language](https://img.shields.io/badge/Language-Java-blue)
 
@@ -8,8 +8,8 @@
 String, Dynamic Programming, Stack, Bracket Sequences
 
 ### 🚀 Performance
-- **Runtime:** N/A
-- **Memory:** N/A
+- **Runtime:** 1 ms
+- **Memory:** 45.5 MB
 
 ---
 
