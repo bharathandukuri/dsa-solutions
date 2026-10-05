@@ -3,7 +3,7 @@
 Track your progress on the NeetCode 150 roadmap practice problems.
 
 ## Progress
-- **Completed:** 18 / 150 (12.0%)
+- **Completed:** 19 / 150 (12.7%)
 
 ---
 
@@ -144,7 +144,7 @@ Track your progress on the NeetCode 150 roadmap practice problems.
 - [ ] Coin Change II
 - [ ] Target Sum
 - [x] [Interleaving String](./Java/Medium/97. Interleaving String/)
-- [ ] Longest Increasing Path in a Matrix
+- [x] [Longest Increasing Path in a Matrix](./Java/Hard/329. Longest Increasing Path in a Matrix/)
 - [ ] Distinct Subsequences
 - [ ] Edit Distance
 - [x] [Burst Balloons](./Java/Hard/312. Burst Balloons/)
