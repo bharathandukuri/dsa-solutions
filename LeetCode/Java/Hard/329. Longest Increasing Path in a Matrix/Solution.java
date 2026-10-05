@@ -6,10 +6,17 @@ class Solution {
             { 1, 0 },
             { -1, 0 }
     };
+    int[][] dp;
 
     public int longestIncreasingPath(int[][] matrix) {
         m = matrix.length;
         n = matrix[0].length;
+
+        dp = new int[m][n];
+
+        for (int i = 0; i < m; i++) {
+            Arrays.fill(dp[i], -1);
+        }
 
         int ans = 0;
 
@@ -28,6 +35,10 @@ class Solution {
     }
 
     private int lip(int[][] matrix, int i, int j) {
+        if (dp[i][j] != -1) {
+            return dp[i][j];
+        }
+
         int result = 1;
 
         for (int[] d : dirs) {
@@ -47,6 +58,6 @@ class Solution {
             }
         }
 
-        return result;
+        return dp[i][j] = result;
     }
 }
