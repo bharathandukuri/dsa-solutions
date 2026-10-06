@@ -1,14 +1,23 @@
 class Solution {
     public int minAddToMakeValid(String s) {
-        int c = 0;
         int n = s.length();
+
+        int operations = 0;
+
+        Deque<Character> stack = new LinkedList<>();
+        char[] arr = s.toCharArray();
+
         for (int i = 0; i < n; i++) {
-            if (s.charAt(i) == '(') {
-                c += 1;
+            if (arr[i] == '(') {
+                stack.push(arr[i]);
             } else {
-                c -= 1;
+                if (stack.isEmpty()) {
+                    operations++;
+                    continue;
+                }
+                stack.pop();
             }
         }
-        return Math.abs(c);
+        return stack.size() + operations;
     }
 }
