@@ -8,7 +8,7 @@
 Array, Sorting, Heap (Priority Queue), Simulation, Prefix Sum
 
 ### 🚀 Performance
-- **Runtime:** Successfully Evaluated
+- **Runtime:** N/A
 - **Memory:** N/A
 
 ---
