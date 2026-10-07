@@ -1,63 +1,80 @@
 class Solution {
-    Set<String> result;
-    int removals = Integer.MAX_VALUE;
 
     public List<String> removeInvalidParentheses(String s) {
-        result = new HashSet<>();
 
-        helper(s.toCharArray(), 0, new StringBuilder(), 0);
+        List<String> result = new ArrayList<>();
 
-        return new ArrayList<>(result);
-    }
+        Queue<String> queue = new LinkedList<>();
+        Set<String> visited = new HashSet<>();
 
-    private void helper(char[] arr, int i,
-                         StringBuilder sb, int balance) {
+        queue.offer(s);
+        visited.add(s);
 
-        if (i == arr.length) {
+        while (!queue.isEmpty()) {
 
-            if (balance == 0) {
-                int curr = arr.length - sb.length();
+            int size = queue.size();
+            boolean found = false;
 
-                if (curr < removals) {
-                    removals = curr;
-                    result.clear();
-                    result.add(sb.toString());
+            // Process one BFS level
+            for (int k = 0; k < size; k++) {
 
-                } else if (curr == removals) {
-                    result.add(sb.toString());
+                String curr = queue.poll();
+
+                if (isValid(curr)) {
+                    result.add(curr);
+                    found = true;
+                }
+
+                // If we already found valid strings at this level,
+                // don't generate the next level.
+                if (found) {
+                    continue;
+                }
+
+                // Remove one parenthesis
+                for (int i = 0; i < curr.length(); i++) {
+
+                    if (curr.charAt(i) != '(' &&
+                        curr.charAt(i) != ')') {
+                        continue;
+                    }
+
+                    String next =
+                        curr.substring(0, i) +
+                        curr.substring(i + 1);
+
+                    if (visited.add(next)) {
+                        queue.offer(next);
+                    }
                 }
             }
 
-            return;
-        }
-
-        char c = arr[i];
-
-        if (c != '(' && c != ')') {
-            sb.append(c);
-            helper(arr, i + 1, sb, balance);
-            sb.deleteCharAt(sb.length() - 1);
-            return;
-        }
-
-        // Take
-        if (c == '(') {
-
-            sb.append(c);
-            helper(arr, i + 1, sb, balance + 1);
-            sb.deleteCharAt(sb.length() - 1);
-
-        } else if (c == ')') {
-
-            // Take ')' only if it can be matched
-            if (balance > 0) {
-                sb.append(c);
-                helper(arr, i + 1, sb, balance - 1);
-                sb.deleteCharAt(sb.length() - 1);
+            if (found) {
+                return result;
             }
         }
 
-        // Skip
-        helper(arr, i + 1, sb, balance);
+        return result;
+    }
+
+    private boolean isValid(String s) {
+
+        int balance = 0;
+
+        for (char c : s.toCharArray()) {
+
+            if (c == '(') {
+                balance++;
+            } else if (c == ')') {
+
+                if (balance == 0) {
+                    return false;
+                }
+
+                balance--;
+            }
+        }
+
+        return balance == 0;
     }
 }
