@@ -1,68 +1,85 @@
 class Solution {
 
-    int[] dp;
-    int target;
-    int k;
+    int[][] dp;
 
     public boolean canPartitionKSubsets(int[] nums, int k) {
+        int n = nums.length;
+
         int total = 0;
 
-        for (int num : nums) {
-            total += num;
+        for (int i = 0; i < n; i++) {
+            total += nums[i];
         }
 
         if (total % k != 0) {
             return false;
         }
 
-        target = total / k;
-        this.k = k;
+        int target = total / k;
 
-        int n = nums.length;
+        dp = new int[1 << n][k + 1];
 
-        dp = new int[1 << n];
-
-        return helper(nums, 0, 0);
+        return helper(nums, 0, 0, k, 0, target);
     }
 
-    private boolean helper(int[] nums, int mask, int sum) {
+    public boolean helper(
+            int[] nums,
+            int mask,
+            int i,
+            int k,
+            int sum,
+            int target) {
 
-        if (mask == (1 << nums.length) - 1) {
+        if (k == 0) {
             return true;
         }
 
-        if (dp[mask] != 0) {
-            return dp[mask] == 2;
+        if (i >= nums.length) {
+            return false;
         }
 
-        for (int i = 0; i < nums.length; i++) {
+        if (dp[mask][k] != 0) {
+            return dp[mask][k] == 1 ? false : true;
+        }
 
-            // Already used
-            if ((mask & (1 << i)) != 0) {
-                continue;
-            }
+        // Skip
+        boolean skip = helper(
+                nums,
+                mask,
+                i + 1,
+                k,
+                sum,
+                target
+        );
 
-            // Can't exceed current subset
-            if (sum + nums[i] > target) {
-                continue;
-            }
+        // Take
+        boolean take = false;
+
+        if ((mask & (1 << i)) == 0 &&
+                sum + nums[i] <= target) {
+
+            boolean matches = sum + nums[i] == target;
 
             int nextMask = mask | (1 << i);
 
-            int nextSum = sum + nums[i];
+            int nextK = matches ? k - 1 : k;
+            int nextI = matches ? 0 : i + 1;
+            int nextSum = matches ? 0 : sum + nums[i];
 
-            // Completed a subset
-            if (nextSum == target) {
-                nextSum = 0;
-            }
-
-            if (helper(nums, nextMask, nextSum)) {
-                dp[mask] = 2;
-                return true;
-            }
+            take = helper(
+                    nums,
+                    nextMask,
+                    nextI,
+                    nextK,
+                    nextSum,
+                    target
+            );
         }
 
-        dp[mask] = 1;
-        return false;
+        boolean result = skip || take;
+
+        dp[mask][k] = result ? 2 : 1;
+
+        return result;
     }
 }
