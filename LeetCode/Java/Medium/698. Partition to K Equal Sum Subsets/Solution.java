@@ -1,6 +1,6 @@
 class Solution {
 
-    int[][][] dp;
+    int[][] dp;
 
     public boolean canPartitionKSubsets(int[] nums, int k) {
         int n = nums.length;
@@ -17,7 +17,7 @@ class Solution {
 
         int target = total / k;
 
-        dp = new int[1 << n][k + 1][target + 1];
+        dp = new int[1 << n][k + 1];
 
         return helper(nums, 0, 0, k, 0, target);
     }
@@ -38,8 +38,8 @@ class Solution {
             return false;
         }
 
-        if (dp[mask][k][sum] != 0) {
-            return dp[mask][k][sum] == 1 ? false : true;
+        if (dp[mask][k] != 0) {
+            return dp[mask][k] == 1 ? false : true;
         }
 
         // Skip
@@ -78,7 +78,7 @@ class Solution {
 
         boolean result = skip || take;
 
-        dp[mask][k][sum] = result ? 2 : 1;
+        dp[mask][k] = result ? 2 : 1;
 
         return result;
     }
