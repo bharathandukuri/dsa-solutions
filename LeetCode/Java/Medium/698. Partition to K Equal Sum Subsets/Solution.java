@@ -1,8 +1,12 @@
 class Solution {
+
+    int[][][] dp;
+
     public boolean canPartitionKSubsets(int[] nums, int k) {
         int n = nums.length;
 
         int total = 0;
+
         for (int i = 0; i < n; i++) {
             total += nums[i];
         }
@@ -13,16 +17,18 @@ class Solution {
 
         int target = total / k;
 
-        boolean[] used = new boolean[n];
+        dp = new int[1 << n][k + 1][target + 1];
 
-        dp = new int[n][k + 1][target + 1];
-
-        return helper(nums, used, 0, k, 0, target);
+        return helper(nums, 0, 0, k, 0, target);
     }
 
-    int[][][] dp;
-
-    public boolean helper(int[] nums, boolean[] used, int i, int k, int sum, int target) {
+    public boolean helper(
+            int[] nums,
+            int mask,
+            int i,
+            int k,
+            int sum,
+            int target) {
 
         if (k == 0) {
             return true;
@@ -32,42 +38,47 @@ class Solution {
             return false;
         }
 
-        if (dp[i][k][sum] != 0) {
-            return dp[i][k][sum] == 1 ? false : true;
+        if (dp[mask][k][sum] != 0) {
+            return dp[mask][k][sum] == 1 ? false : true;
         }
 
         // Skip
         boolean skip = helper(
-                nums, used, i + 1, k, sum, target);
+                nums,
+                mask,
+                i + 1,
+                k,
+                sum,
+                target
+        );
 
         // Take
         boolean take = false;
 
-        if (!used[i] && sum + nums[i] <= target) {
+        if ((mask & (1 << i)) == 0 &&
+                sum + nums[i] <= target) {
 
             boolean matches = sum + nums[i] == target;
 
-            used[i] = true;
+            int nextMask = mask | (1 << i);
 
-            if (matches) {
-                k--;
-            }
-
-            int idx = matches ? 0 : i + 1;
+            int nextK = matches ? k - 1 : k;
+            int nextI = matches ? 0 : i + 1;
             int nextSum = matches ? 0 : sum + nums[i];
 
-            take = helper(nums, used, idx, k, nextSum, target);
-
-            // Backtrack
-            used[i] = false;
-
-            if (matches) {
-                k++;
-            }
+            take = helper(
+                    nums,
+                    nextMask,
+                    nextI,
+                    nextK,
+                    nextSum,
+                    target
+            );
         }
 
         boolean result = skip || take;
-        dp[i][k][sum] = result == false ? 1 : 2;
+
+        dp[mask][k][sum] = result ? 2 : 1;
 
         return result;
     }
