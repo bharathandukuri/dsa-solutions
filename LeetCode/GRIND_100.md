@@ -3,7 +3,7 @@
 Track your progress on the Grind 100 coding interview preparation list.
 
 ## Progress
-- **Completed:** 15 / 100 (15.0%)
+- **Completed:** 16 / 100 (16.0%)
 
 ---
 
@@ -94,7 +94,7 @@ Track your progress on the Grind 100 coding interview preparation list.
 - [ ] Word Break
 - [ ] Longest Increasing Subsequence
 - [ ] House Robber
-- [ ] Partition Equal Subset Sum
+- [x] [Partition Equal Subset Sum](./Java/Medium/416. Partition Equal Subset Sum/)
 - [ ] Edit Distance
 - [ ] Unique Paths
 - [ ] Minimum Path Sum
