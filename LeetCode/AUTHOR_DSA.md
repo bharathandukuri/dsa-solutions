@@ -3,7 +3,7 @@
 Track your progress on the Curated 100hrs DSA core interview preparation list.
 
 ## Progress
-- **Completed:** 7 / 238 (2.9%)
+- **Completed:** 8 / 238 (3.4%)
 
 ---
 
@@ -140,7 +140,7 @@ Track your progress on the Curated 100hrs DSA core interview preparation list.
 - [ ] House Robber
 - [ ] Jump Game
 - [x] [Stone Game](./Java/Medium/909. Stone Game/)
-- [ ] Matchsticks to Square
+- [x] [Matchsticks to Square](./Java/Medium/473. Matchsticks to Square/)
 - [ ] Bulb Switcher
 
 ### 📂 MODULE  3.11: COMBINATORIAL ARRAYS Pasca
