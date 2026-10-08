@@ -15,16 +15,14 @@ class Solution {
 
         boolean[] used = new boolean[n];
 
+        dp = new int[n][k + 1][target + 1];
+
         return helper(nums, used, 0, k, 0, target);
     }
 
-    public boolean helper(
-            int[] nums,
-            boolean[] used,
-            int i,
-            int k,
-            int sum,
-            int target) {
+    int[][][] dp;
+
+    public boolean helper(int[] nums, boolean[] used, int i, int k, int sum, int target) {
 
         if (k == 0) {
             return true;
@@ -32,6 +30,10 @@ class Solution {
 
         if (i >= nums.length) {
             return false;
+        }
+
+        if (dp[i][k][sum] != 0) {
+            return dp[i][k][sum] == 1 ? false : true;
         }
 
         // Skip
@@ -54,8 +56,7 @@ class Solution {
             int idx = matches ? 0 : i + 1;
             int nextSum = matches ? 0 : sum + nums[i];
 
-            take = helper(
-                    nums, used, idx, k, nextSum, target);
+            take = helper(nums, used, idx, k, nextSum, target);
 
             // Backtrack
             used[i] = false;
@@ -65,6 +66,9 @@ class Solution {
             }
         }
 
-        return skip || take;
+        boolean result = skip || take;
+        dp[i][k][sum] = result == false ? 1 : 2;
+
+        return result;
     }
 }
