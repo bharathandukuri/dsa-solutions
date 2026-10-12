@@ -1,7 +1,15 @@
 class Solution {
+
+    int[][] dp;
     public int numDistinct(String s, String t) {
         char[] s1 = s.toCharArray();
         char[] s2 = t.toCharArray();
+
+        dp = new int[s1.length][s2.length];
+        for (int[] row: dp) {
+            Arrays.fill(row, -1);
+        }
+
 
         return helper(s1, s2, 0, 0);
     }
@@ -18,6 +26,10 @@ class Solution {
             return 0;
         }
 
+        if (dp[i][j] != -1) {
+            return dp[i][j];
+        }
+
         int count = 0;
         
         //matching
@@ -27,6 +39,6 @@ class Solution {
 
         //not matching
         count += helper(s1, s2, i + 1, j);
-        return count;
+        return dp[i][j] = count;
     }
 }
