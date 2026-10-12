@@ -3,7 +3,7 @@
 Track your progress on the Striver's SDE Sheet top interview problems.
 
 ## Progress
-- **Completed:** 11 / 76 (14.5%)
+- **Completed:** 12 / 76 (15.8%)
 
 ---
 
@@ -53,7 +53,7 @@ Track your progress on the Striver's SDE Sheet top interview problems.
 - [ ] Permutations
 - [x] [N-Queens](./Java/Hard/51. N-Queens/)
 - [ ] Sudoku Solver
-- [ ] Word Break
+- [x] [Word Break](./Java/Medium/139. Word Break/)
 
 ### 📂 Binary Search
 - [ ] Single Element in a Sorted Array
