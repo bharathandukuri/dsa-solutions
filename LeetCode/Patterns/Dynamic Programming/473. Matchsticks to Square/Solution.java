@@ -1,6 +1,6 @@
 class Solution {
 
-    Boolean[][] dp;
+    Boolean[] dp;
 
     public boolean makesquare(int[] matchsticks) {
         int total = 0;
@@ -17,7 +17,7 @@ class Solution {
 
         Arrays.sort(matchsticks);
 
-        dp = new Boolean[1 << matchsticks.length][side + 1];
+        dp = new Boolean[1 << matchsticks.length];
 
         return getCombinations(
                 matchsticks,
@@ -39,8 +39,8 @@ class Solution {
             return mask == (1 << matchsticks.length) - 1;
         }
 
-        if (dp[mask][sum] != null) {
-            return dp[mask][sum];
+        if (dp[mask] != null) {
+            return dp[mask];
         }
 
         for (int i = 0; i < matchsticks.length; i++) {
@@ -66,7 +66,7 @@ class Solution {
                         0,
                         sides + 1)) {
 
-                    return dp[mask][sum] = true;
+                    return dp[mask] = true;
                 }
 
             } else {
@@ -78,11 +78,11 @@ class Solution {
                         newSum,
                         sides)) {
 
-                    return dp[mask][sum] = true;
+                    return dp[mask] = true;
                 }
             }
         }
 
-        return dp[mask][sum] = false;
+        return dp[mask] = false;
     }
 }
