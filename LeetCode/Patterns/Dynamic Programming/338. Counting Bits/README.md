@@ -1,6 +1,6 @@
 # 📝 338. Counting Bits (LeetCode)
 
-🔗 [Problem Link](https://leetcode.com/problems/counting-bits)
+🔗 [Problem Link](https://leetcode.com/problems/counting-bits/?envType=study-plan-v2&envId=leetcode-75)
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-brightgreen) ![Language](https://img.shields.io/badge/Language-Java-blue)
 
