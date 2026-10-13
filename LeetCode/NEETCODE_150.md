@@ -3,7 +3,7 @@
 Track your progress on the NeetCode 150 roadmap practice problems.
 
 ## Progress
-- **Completed:** 29 / 150 (19.3%)
+- **Completed:** 30 / 150 (20.0%)
 
 ---
 
@@ -138,7 +138,7 @@ Track your progress on the NeetCode 150 roadmap practice problems.
 - [x] [Partition Equal Subset Sum](./Java/Medium/416. Partition Equal Subset Sum/)
 
 ### 📂 2-D Dynamic Programming
-- [ ] Unique Paths
+- [x] [Unique Paths](./Java/Medium/62. Unique Paths/)
 - [x] [Longest Common Subsequence](./Java/Medium/1250. Longest Common Subsequence/)
 - [x] [Best Time to Buy and Sell Stock with Cooldown](./Java/Medium/309. Best Time to Buy and Sell Stock with Cooldown/)
 - [ ] Coin Change II
