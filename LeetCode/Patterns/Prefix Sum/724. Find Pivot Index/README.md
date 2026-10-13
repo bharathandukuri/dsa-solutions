@@ -1,6 +1,6 @@
 # 📝 724. Find Pivot Index (LeetCode)
 
-🔗 [Problem Link](https://leetcode.com/problems/find-pivot-index/?envType=study-plan-v2&envId=leetcode-75)
+🔗 [Problem Link](https://leetcode.com/problems/find-pivot-index/)
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-brightgreen) ![Language](https://img.shields.io/badge/Language-Java-blue)
 
@@ -8,8 +8,8 @@
 Array, Prefix Sum
 
 ### 🚀 Performance
-- **Runtime:** N/A
-- **Memory:** N/A
+- **Runtime:** 1 ms
+- **Memory:** 47.2 MB
 
 ---
 
