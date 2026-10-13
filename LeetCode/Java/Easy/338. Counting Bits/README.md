@@ -1,6 +1,6 @@
 # 📝 338. Counting Bits (LeetCode)
 
-🔗 [Problem Link](https://leetcode.com/problems/counting-bits/?envType=study-plan-v2&envId=leetcode-75)
+🔗 [Problem Link](https://leetcode.com/problems/counting-bits/)
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-brightgreen) ![Language](https://img.shields.io/badge/Language-Java-blue)
 
@@ -8,8 +8,8 @@
 Dynamic Programming, Bit Manipulation
 
 ### 🚀 Performance
-- **Runtime:** N/A
-- **Memory:** N/A
+- **Runtime:** 2 ms
+- **Memory:** 48.4 MB
 
 ---
 

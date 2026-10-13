@@ -1,10 +1,10 @@
 class Solution {
     public int[] countBits(int n) {
-        int[] count = new int[n + 1];
-        for (int i = 0; i < n + 1; i++) {
-            count[i] = Integer.bitCount(i);
+        int[] ans = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+            // i & (i - 1) is strictly smaller than i, so its value is already computed
+            ans[i] = ans[i & (i - 1)] + 1;
         }
-
-        return count;
+        return ans;
     }
 }
