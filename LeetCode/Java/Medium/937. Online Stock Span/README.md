@@ -8,8 +8,8 @@
 Stack, Design, Monotonic Stack, Data Stream
 
 ### 🚀 Performance
-- **Runtime:** 29 ms
-- **Memory:** 54.5 MB
+- **Runtime:** N/A
+- **Memory:** N/A
 
 ---
 
