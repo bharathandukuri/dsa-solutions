@@ -8,8 +8,8 @@
 Hash Table, String, Design, Trie
 
 ### 🚀 Performance
-- **Runtime:** 35 ms
-- **Memory:** 62.1 MB
+- **Runtime:** N/A
+- **Memory:** N/A
 
 ---
 
