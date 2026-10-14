@@ -8,8 +8,8 @@
 Array, String, Binary Search, Trie, Sorting, Heap (Priority Queue)
 
 ### 🚀 Performance
-- **Runtime:** N/A
-- **Memory:** N/A
+- **Runtime:** 17 ms
+- **Memory:** 53.8 MB
 
 ---
 
