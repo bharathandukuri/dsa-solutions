@@ -7,11 +7,20 @@ class Solution {
             sum -= 9;
             digits++;
         }
+
+        if (digits == num && sum == 0) {
+            return s.toString();
+        }
+
+        if (digits >= num) {
+            return "";
+        }
+
         s.append(String.valueOf(sum));
         digits++;
         for (int i = digits; i < num; i++) {
             s.append('0');
         }
-        return s.length() == num ? s.toString() : "";
+        return s.toString();
     }
 }
