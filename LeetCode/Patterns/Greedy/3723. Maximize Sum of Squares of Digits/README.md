@@ -1,6 +1,6 @@
 # 📝 3723. Maximize Sum of Squares of Digits (LeetCode)
 
-🔗 [Problem Link](https://leetcode.com/problems/maximize-sum-of-squares-of-digits)
+🔗 [Problem Link](https://leetcode.com/problems/maximize-sum-of-squares-of-digits/?envType=daily-question&envId=2026-10-14)
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-orange) ![Language](https://img.shields.io/badge/Language-Java-blue)
 
